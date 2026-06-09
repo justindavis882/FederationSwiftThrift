@@ -9,10 +9,12 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#1c1e1f">
+    
+    <link rel="manifest" href="manifest.json"> 
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js') // Removed the /
             .then(reg => console.log('Service Worker Operational:', reg.scope))
             .catch(err => console.error('Service Worker Fault:', err));
         });

@@ -1,9 +1,9 @@
-const CACHE_NAME = 'fed-engine-v1.1';
+const CACHE_NAME = 'fed-engine-v1.2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/home.html',
-  '/D99.html',
+  '/00-Main/home.html',   // Updated path
+  '/00-Main/D99.html',    // Updated path
   '/style.css',
   '/script.js',
   '/auth.js',
