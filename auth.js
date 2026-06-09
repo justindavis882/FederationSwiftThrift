@@ -1,6 +1,6 @@
 import { auth, db } from './script.js';
-import { signInAnonymously } from "firebase/auth";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('staff-id');
