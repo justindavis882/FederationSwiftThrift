@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Terminal | Federation Swift Thrift</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1c1e1f">
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker Operational:', reg.scope))
+            .catch(err => console.error('Service Worker Fault:', err));
+        });
+    }
+    </script>
+</head>
+<body>
+    <div class="terminal-chassis login-chassis">
+        
+        <header class="digital-display">
+            <h1>SYS.AUTH :: IDENTIFY</h1>
+            <div class="status-indicator">AWAITING INPUT</div>
+        </header>
+
+        <main class="login-interface">
+            <div class="input-housing">
+                <label for="staff-id">SCAN OR ENTER 12-DIGIT STAFF ID</label>
+                <input type="text" id="staff-id" class="lcd-input" maxlength="12" placeholder="08_ _ _ _ _ _ _ _ _ _" autofocus autocomplete="off">
+                <div id="auth-feedback" class="feedback-message"></div>
+            </div>
+
+            <div class="numpad-grid">
+                <button class="num-key" data-val="1">1</button>
+                <button class="num-key" data-val="2">2</button>
+                <button class="num-key" data-val="3">3</button>
+                <button class="num-key" data-val="4">4</button>
+                <button class="num-key" data-val="5">5</button>
+                <button class="num-key" data-val="6">6</button>
+                <button class="num-key" data-val="7">7</button>
+                <button class="num-key" data-val="8">8</button>
+                <button class="num-key" data-val="9">9</button>
+                <button class="num-key action-key" id="btn-clear">CLR</button>
+                <button class="num-key" data-val="0">0</button>
+                <button class="num-key action-key enter-key" id="btn-enter">ENT</button>
+            </div>
+        </main>
+
+    </div>
+    <script src="auth.js" type="module"></script>
+</body>
+</html>

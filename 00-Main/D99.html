@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-cale=1.0">
+        <title>Federation Swift Thrift General Layouts</title>
+        <style>
+            body {
+                background-color: #1e1e1e;
+                color: #d4d4d4;
+                font-family: sans-serif;
+                display: flex;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .ascii-container {
+                background-color: #2d2d2d;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            h1 {
+                text-align: center;
+                color: #4CAF50;
+                margin-top: 0;
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+
+            p, li, pre, .productCard {
+                font-family: 'Courier New', 'Courier New', Courier, monospace; 
+                white-space: pre;
+                line-height: 1.15;
+                font-size: 16px;
+                overflow-x: auto;
+                margin: 0;
+            }
+
+            button { background: #0056b3; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; }
+            button:hover { background: #004085; }
+        </style>
+
+        <link rel="manifest" href="/manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1c1e1f">
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('Service Worker Operational:', reg.scope))
+                .catch(err => console.error('Service Worker Fault:', err));
+            });
+        }
+        </script>
+    </head>
+    <header>
+        <p>D99</p>
+        <a href="index.html">Back Home</a>
+    </header>
+    <body>
+        <div class="ascii-container">
+            <h1>D99 - Store Supplies</h1>
+            <p>To order supplies for your store, please scroll below or search for the products needed.</p>
+            <ul>
+                <li>Once your cart is built, you may submit your order for review.</li>
+                <li>Once approved, please expect your supplies to arrive within 3 trucks.</li>
+            </ul>
+
+            <hr>
+            <pre style="text-align:center;">
+|------------------------------|
+|        Front of House        |
+|------------------------------|
+            </pre>
+            
+            <div class="productCard">
+                <h2>Standard - Fabric Tagger</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>Fine - Fabric Tagger</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>2in - Tagger Barbs</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>3pc - Fabric Tagger Needles</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>A1 Labels - 2.5in x 1in</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>A2 Labels - 2.5in x 2.5in</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>A3 Labels - 2.5in x 5in</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>Standard - Hangers</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>Fine - Hangers</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>Clip - Hangers</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>5pc - Blank Size Cards</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>12pc - Thermal Receipt Tape</h2>
+            </div>
+
+            <div class="productCard">
+                <h2>3pc - Counterfeit Detecter Pen</h2>
+            </div>
+        </div>
+    </body>
+</html>

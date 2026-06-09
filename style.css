@@ -1,0 +1,256 @@
+/* Color Variables for Industrial Control Panel */
+:root {
+    --bg-environment: #1c1e1f;
+    --chassis-color: #8c9296;
+    --key-base: #cfd4d8;
+    --key-dark: #a1a6aa;
+    --text-color: #111111;
+    --highlight-green: #39ff14;
+    --shadow-light: #ffffff;
+    --shadow-dark: #5a5e61;
+}
+
+
+body {
+    margin: 0;
+    background-color: var(--bg-environment);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+
+/* The Main Enclosure */
+.terminal-chassis {
+    background-color: var(--chassis-color);
+    width: 95vw;
+    max-width: 1400px;
+    height: 90vh;
+    border: 12px solid #444;
+    border-top-color: #b0b5b9;
+    border-left-color: #b0b5b9;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+
+/* The Screen Array */
+.digital-display {
+    background-color: #0a0a0a;
+    color: var(--highlight-green);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 8px solid #222;
+    border-bottom-color: #444;
+    border-right-color: #444;
+    margin-bottom: 40px;
+    box-shadow: inset 0px 0px 15px rgba(57, 255, 20, 0.1);
+}
+
+
+.digital-display h1 { 
+    margin: 0; 
+    font-size: 28px; 
+    text-shadow: 0 0 5px var(--highlight-green);
+}
+
+
+.status-indicator {
+    font-weight: bold;
+    font-size: 20px;
+    animation: blink 2s infinite;
+}
+
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+/* Main Grid Layout */
+.control-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+
+/* Primary Large Format Buttons */
+.macro-key {
+    background-color: var(--key-base);
+    border: 8px solid;
+    border-top-color: var(--shadow-light);
+    border-left-color: var(--shadow-light);
+    border-bottom-color: var(--shadow-dark);
+    border-right-color: var(--shadow-dark);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: background-color 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Active Skeuomorphic Press State */
+.macro-key:active {
+    border-top-color: var(--shadow-dark);
+    border-left-color: var(--shadow-dark);
+    border-bottom-color: var(--shadow-light);
+    border-right-color: var(--shadow-light);
+    background-color: var(--key-dark);
+    transform: translateY(2px);
+}
+
+
+.key-id {
+    font-size: 48px;
+    color: #666;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px #fff;
+}
+
+
+.key-label {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+
+/* Footer Section */
+.action-footer {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    border-top: 6px groove var(--shadow-dark);
+    padding-top: 30px;
+}
+
+
+/* Auxiliary Control Switches */
+.aux-key {
+    flex: 1;
+    background-color: var(--key-base);
+    border: 6px solid;
+    border-top-color: var(--shadow-light);
+    border-left-color: var(--shadow-light);
+    border-bottom-color: var(--shadow-dark);
+    border-right-color: var(--shadow-dark);
+    padding: 20px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.aux-key:active {
+    border-top-color: var(--shadow-dark);
+    border-left-color: var(--shadow-dark);
+    border-bottom-color: var(--shadow-light);
+    border-right-color: var(--shadow-light);
+    background-color: var(--key-dark);
+    transform: translateY(2px);
+}
+
+
+/* Emergency Stop Button Styling */
+.warning-key {
+    background-color: #d32f2f;
+    color: white;
+    border-top-color: #ff6659;
+    border-left-color: #ff6659;
+    border-bottom-color: #9a0007;
+    border-right-color: #9a0007;
+    text-shadow: 1px 1px 2px #000;
+}
+
+
+.warning-key:active {
+    border-top-color: #9a0007;
+    border-left-color: #9a0007;
+    border-bottom-color: #ff6659;
+    border-right-color: #ff6659;
+    background-color: #b71c1c;
+}
+
+
+/* Scrollbar Customization for Grid */
+.control-grid::-webkit-scrollbar {
+    width: 24px;
+}
+
+
+.control-grid::-webkit-scrollbar-track {
+    background: #444;
+    border: 4px solid var(--shadow-dark);
+    border-right: none;
+}
+
+
+.control-grid::-webkit-scrollbar-thumb {
+    background-color: var(--key-base);
+    border: 4px solid;
+    border-top-color: var(--shadow-light);
+    border-left-color: var(--shadow-light);
+    border-bottom-color: var(--shadow-dark);
+    border-right-color: var(--shadow-dark);
+}
+
+.numpad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 350px;
+    margin: 20px auto 0 auto;
+}
+
+.num-key {
+    background-color: var(--key-base);
+    border: 6px solid;
+    border-top-color: var(--shadow-light);
+    border-left-color: var(--shadow-light);
+    border-bottom-color: var(--shadow-dark);
+    border-right-color: var(--shadow-dark);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: background-color 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+}
