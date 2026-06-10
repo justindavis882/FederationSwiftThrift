@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Complete | Federation Swift Thrift</title>
+    <link rel="stylesheet" href="store.css">
+    <style>
+        .success-container {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 600px;
+            margin: 60px auto;
+            background: var(--card-bg);
+            border: 3px solid var(--border-dark);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+        .success-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .order-id-box {
+            font-family: monospace;
+            background: #eee;
+            border: 2px dashed #ccc;
+            padding: 15px;
+            margin: 25px 0;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="store-header">
+        <div class="logo">FEDERATION SWIFT THRIFT</div>
+        <a href="index.html" class="cart-btn" style="text-decoration: none;">RETURN TO SHOP</a>
+    </header>
+
+    <main class="success-container">
+        <div class="success-icon">✓</div>
+        <h1 style="font-family: monospace; text-transform: uppercase;">TRANSACTION SECURED</h1>
+        <p>Your credits have been processed and the item has been flagged for logistics routing.</p>
+        
+        <div class="order-id-box">
+            FEDERATION ID: <br>
+            <strong id="session-id">AWAITING SYNC...</strong>
+        </div>
+        
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">
+            Please save this ID for your records. A standard transmission containing your receipt has been dispatched to your email.
+        </p>
+    
+        <button id="btn-print" class="hero-link" style="margin-top: 20px; cursor: pointer;">
+            PRINT DATALOG
+        </button>
+    </main>
+
+    <footer class="store-footer">
+        <nav class="footer-links">
+            <a href="index.html">HOME</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="articles/index.html">ARTICLES</a>
+            <a href="fedengine/index.html">INTRANET</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 SWIFT THRIFT. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+    <script>
+        // Extract the Stripe Session ID from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        const sessionDisplay = document.getElementById('session-id');
+        if (sessionId) {
+            sessionDisplay.textContent = sessionId;
+        } else {
+            sessionDisplay.textContent = "MANUAL OVERRIDE - NO STRIPE ID DETECTED";
+        }
+
+        // Print Dialog Trigger
+        const btnPrint = document.getElementById('btn-print');
+        if (btnPrint) {
+            btnPrint.addEventListener('click', () => {
+                window.print();
+            });
+        }
+    </script>
+</body>
+</html>

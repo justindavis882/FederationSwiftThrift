@@ -17,6 +17,10 @@ body {
     color: var(--text-main);
 }
 
+/* =========================================
+   HEADER STYLES
+   ========================================= */
+
 /* Sticky Header */
 .store-header {
     position: sticky;
@@ -51,20 +55,110 @@ body {
 }
 .cart-btn:active { transform: translateY(2px); }
 
-/* Store Hero */
+/* Header Navigation Links */
+.header-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.header-links a {
+    color: white;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s ease-in-out;
+}
+
+.header-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Mobile Adjustments for the Header */
+@media (max-width: 768px) {
+    .store-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .header-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   STORE HERO SECTION
+   ========================================= */
 .store-hero {
     background-color: var(--border-dark);
     color: white;
-    padding: 15px 30px;
+    padding: 80px 20px; /* Massive padding for vertical spacing */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: center;
     align-items: center;
+    text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-bottom: 4px solid var(--accent-color); /* Industrial accent line */
+    margin-bottom: 40px; /* Spacing before the product grid */
 }
 
-.hero-link {
-    color:#00ff00;
+.store-hero h1 {
+    font-family: monospace;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
 }
+
+.store-hero p {
+    max-width: 700px; /* Prevents text from stretching too wide on desktop */
+    line-height: 1.6;
+    color: #ccc; /* Slightly muted for readability against the dark background */
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Upgraded Tactical Button */
+.hero-link {
+    background-color: var(--accent-color);
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px solid black;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.hero-link:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .store-hero {
+        padding: 50px 20px;
+    }
+    .store-hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   MAIN CONTENT STYLES
+   ========================================= */
 
 /* 2-Column Product Grid */
 .product-container {
@@ -135,17 +229,51 @@ body {
 }
 .btn-add-cart:hover { background-color: #444; }
 
+/* =========================================
+   FOOTER STYLES
+   ========================================= */
+
 .store-footer {
-    bottom: 0;
     background-color: var(--border-dark);
     color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 40px 20px;
+    margin-top: 60px;
+    text-align: center;
+    border-top: 4px solid var(--accent-color);
 }
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-copy {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: monospace;
+}
+
+/* =========================================
+   CART STYLES
+   ========================================= */
 
 /* Cart Modal Overlay */
 .cart-overlay {
@@ -226,4 +354,185 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .store-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   PRINT STYLES (DIGITAL RECEIPT)
+   ========================================= */
+@media print {
+    /* Hide the navigation, footer, and the print button itself */
+    .store-header, 
+    .store-footer, 
+    #btn-print {
+        display: none !important;
+    }
+
+    /* Force the printed page to act as a centered canvas */
+    body {
+        background-color: white !important;
+        color: black !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 100vh !important; /* Centers vertically on the paper */
+        margin: 0 !important;
+    }
+
+    /* Style the receipt box with a dotted border */
+    .success-container {
+        border: 3px dotted black !important; /* Tactical tear-off border */
+        box-shadow: none !important;
+        padding: 40px !important;
+        max-width: 500px !important;
+        width: 100% !important;
+        margin: 0 auto !important; /* Centers horizontally */
+        text-align: center !important;
+    }
+
+    /* Ensure the order ID box retains its visual structure */
+    .order-id-box {
+        border: 2px dashed black !important;
+        background: transparent !important;
+    }
+}
+
+/* =========================================
+   IMAGE CAROUSEL SYSTEM
+   ========================================= */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.carousel-container .product-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Tactical Overlay Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 14px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Image Counter Overlay */
+.carousel-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 4px 10px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    border: 1px solid #444;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* =========================================
+   STORE CONTROLS (SEARCH & FILTERS)
+   ========================================= */
+.store-controls {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Search Bar */
+.search-container input {
+    width: 100%;
+    padding: 15px 20px;
+    font-family: monospace;
+    font-size: 1.2rem;
+    background-color: var(--card-bg, #111);
+    color: var(--accent-color, #00ff00);
+    border: 3px solid var(--border-dark, #333);
+    outline: none;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+}
+
+.search-container input:focus {
+    border-color: var(--accent-color, #00ff00);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.search-container input::placeholder {
+    color: #666;
+}
+
+/* Category Filter Buttons */
+.category-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid var(--border-dark, #333);
+    padding: 10px 20px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-color, #00ff00);
+    color: var(--accent-color, #00ff00);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color, #00ff00);
+    color: black;
+    border-color: var(--accent-color, #00ff00);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Mobile Alignment */
+@media (max-width: 768px) {
+    .category-filters {
+        justify-content: stretch;
+    }
+    .filter-btn {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+    }
 }

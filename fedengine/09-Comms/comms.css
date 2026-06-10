@@ -1,0 +1,95 @@
+/* =========================================
+   09-COMMS :: MODULE SPECIFIC STYLES
+   ========================================= */
+
+/* Two-Column Workspace */
+.comms-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    padding: 20px;
+    align-items: start;
+}
+
+/* Expanded Text Editor */
+#article-content {
+    min-height: 450px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background-color: #0a0a0a;
+    color: #00ff00;
+    border: 3px solid #444;
+    border-top-color: #0a0a0a;
+    border-left-color: #0a0a0a;
+    padding: 15px;
+    resize: vertical;
+}
+
+#article-content:focus {
+    border-color: #00ff00;
+    outline: none;
+}
+
+/* Syntax Legend Terminal Panel */
+.html-legend {
+    background-color: #111;
+    border: 2px dashed #444;
+    padding: 20px;
+    color: #ccc;
+    font-family: monospace;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
+
+.html-legend h3 {
+    color: #00ff00;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.legend-desc {
+    font-size: 0.8rem;
+    color: #888;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.html-legend ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.html-legend li {
+    margin-bottom: 18px;
+}
+
+.html-legend code {
+    display: block;
+    background-color: #000;
+    color: #00ff00;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-left: 3px solid #00ff00;
+    font-size: 0.95rem;
+}
+
+.html-legend span {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .comms-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    #article-content {
+        min-height: 300px;
+    }
+}

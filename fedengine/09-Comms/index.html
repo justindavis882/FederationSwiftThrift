@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comms Array | FedEngine</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../03-Dono/dono.css"> 
+    <!-- New Dedicated Stylesheet -->
+    <link rel="stylesheet" href="comms.css"> 
+</head>
+<body>
+    <div class="terminal-container">
+        <header class="terminal-header">
+            <p>SYS.COMMS :: FEDERATION BROADCAST</p>
+            <p>STATUS: AWAITING TRANSMISSION</p>
+        </header>
+
+        <main class="comms-layout">
+            <!-- Left Column: The Editor -->
+            <form id="comms-form" class="industrial-form">
+                <div class="form-group">
+                    <label>TRANSMISSION TITLE</label>
+                    <input type="text" id="article-title" required autocomplete="off" placeholder="ENTER LOG TITLE">
+                </div>
+
+                <div class="form-group">
+                    <label>EXTERNAL IMAGE URL (OPTIONAL)</label>
+                    <input type="url" id="article-image" placeholder="HTTPS://IMG.BB/YOUR-IMAGE-LINK">
+                </div>
+
+                <div class="form-group">
+                    <label>DATALOG CONTENT</label>
+                    <textarea id="article-content" required placeholder="INITIATE DATA ENTRY..."></textarea>
+                </div>
+
+                <button type="submit" class="macro-key action-key">BROADCAST TO FEDERATION</button>
+            </form>
+
+            <!-- Right Column: The Legend -->
+            <aside class="html-legend">
+                <h3>SYNTAX GUIDE</h3>
+                <p class="legend-desc">USE STANDARD HTML TAGS TO FORMAT YOUR TRANSMISSION.</p>
+                <ul>
+                    <li>
+                        <code>&lt;h1&gt;TITLE&lt;/h1&gt;</code>
+                        <span>MAIN HEADER</span>
+                    </li>
+                    <li>
+                        <code>&lt;h2&gt;SUBTITLE&lt;/h2&gt;</code>
+                        <span>SECTION HEADER</span>
+                    </li>
+                    <li>
+                        <code>&lt;strong&gt;TEXT&lt;/strong&gt;</code>
+                        <span>BOLD EMPHASIS</span>
+                    </li>
+                    <li>
+                        <code>&lt;em&gt;TEXT&lt;/em&gt;</code>
+                        <span>ITALIC EMPHASIS</span>
+                    </li>
+                    <li>
+                        <code>&lt;br&gt;</code>
+                        <span>LINE BREAK (NO CLOSING TAG)</span>
+                    </li>
+                    <li>
+                        <code>&lt;a href="URL"&gt;TEXT&lt;/a&gt;</code>
+                        <span>HYPERLINK</span>
+                    </li>
+                    <li>
+                        <code>&lt;blockquote&gt;QUOTE&lt;/blockquote&gt;</code>
+                        <span>INDENTED QUOTE</span>
+                    </li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer class="action-footer">
+            <button class="aux-key" id="btn-back">RETURN MAIN</button>
+        </footer>
+    </div>
+    <script src="../script.js" type="module"></script>
+    <script src="comms.js" type="module"></script>
+</body>
+</html>

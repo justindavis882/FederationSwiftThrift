@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Federation Swift Thrift</title>
+    <link rel="stylesheet" href="store.css">
+    <style>
+        .contact-form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            border: 3px solid var(--border-dark);
+            padding: 30px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+        .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
+        .form-group label { font-family: monospace; font-weight: bold; margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px;
+            font-family: 'Helvetica Neue', sans-serif;
+            border: 2px solid #ccc;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="store-header">
+        <div class="logo">FEDERATION SWIFT THRIFT</div>
+        
+        <!-- Public Navigation Links -->
+        <nav class="header-links">
+            <a href="index.html">HOME</a>
+            <a href="articles/index.html">ARTICLES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <button id="btn-cart-toggle" class="cart-btn">
+            CART [<span id="cart-count">0</span>]
+        </button>
+    </header>
+
+    <main class="contact-form-container">
+        <h1 style="font-family: monospace; margin-top: 0; border-bottom: 2px solid var(--border-dark); padding-bottom: 10px;">HAIL A COMMUNICATOR</h1>
+        
+        <form id="contact-form">
+            <div class="form-group">
+                <label>CITIZEN NAME</label>
+                <input type="text" id="contact-name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: row; gap: 15px;">
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <label>PREFERRED METHOD</label>
+                    <select id="contact-method" required>
+                        <option value="email">EMAIL</option>
+                        <option value="phone">PHONE</option>
+                    </select>
+                </div>
+                <div style="flex: 2; display: flex; flex-direction: column;">
+                    <label>CONTACT DESTINATION</label>
+                    <input type="text" id="contact-detail" required placeholder="Email or Phone Number">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>REASON FOR INQUIRY</label>
+                <select id="contact-reason" required>
+                    <option value="" disabled selected>-- SELECT REASON --</option>
+                    <option value="order">ORDER SUPPORT</option>
+                    <option value="donation">DONATION INQUIRY</option>
+                    <option value="general">GENERAL TRANSMISSION</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>MESSAGE</label>
+                <textarea id="contact-message" rows="5" required placeholder="How can we assist you today?"></textarea>
+            </div>
+
+            <button type="submit" class="action-key" id="btn-submit">TRANSMIT MESSAGE</button>
+        </form>
+    </main>
+
+    <footer class="store-footer">
+        <nav class="footer-links">
+            <a href="index.html">HOME</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="articles/index.html">ARTICLES</a>
+            <a href="fedengine/index.html">INTRANET</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 SWIFT THRIFT. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+    <script src="fedengine/script.js" type="module"></script>
+    <script type="module">
+        import { db } from './fedengine/script.js';
+        import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit');
+            
+            try {
+                btn.textContent = "SENDING...";
+                btn.disabled = true;
+
+                await addDoc(collection(db, "transmissions"), {
+                    name: document.getElementById('contact-name').value,
+                    method: document.getElementById('contact-method').value,
+                    detail: document.getElementById('contact-detail').value,
+                    reason: document.getElementById('contact-reason').value,
+                    message: document.getElementById('contact-message').value,
+                    status: "UNREAD",
+                    timestamp: serverTimestamp()
+                });
+
+                alert("MESSAGE RECEIVED. A FEDERATION REPRESENTATIVE WILL CONTACT YOU SHORTLY.");
+                document.getElementById('contact-form').reset();
+                btn.textContent = "TRANSMIT MESSAGE";
+                btn.disabled = false;
+
+            } catch (error) {
+                console.error("Transmission Error:", error);
+                alert("SYSTEM FAILURE. PLEASE TRY AGAIN.");
+                btn.textContent = "TRANSMIT MESSAGE";
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "short_name": "FedEngine",
+  "name": "Federation Swift Thrift Terminal",
+  "description": "Modular Intranet, Logistics, and POS Operating Terminal",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "./index.html",
+  "scope": "./",
+  "background_color": "#1c1e1f",
+  "theme_color": "#8c9296",
+  "display": "standalone",
+  "orientation": "landscape"
+}

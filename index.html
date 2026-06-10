@@ -9,6 +9,14 @@
 <body>
     <header class="store-header">
         <div class="logo">FEDERATION SWIFT THRIFT</div>
+        
+        <!-- Public Navigation Links -->
+        <nav class="header-links">
+            <a href="index.html">HOME</a>
+            <a href="articles/index.html">ARTICLES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
         <button id="btn-cart-toggle" class="cart-btn">
             CART [<span id="cart-count">0</span>]
         </button>
@@ -17,12 +25,27 @@
     <main class="product-container">
         
         <div class="store-hero">
-            <h1>Welcome Traveller!</h1>
-            <p>Please look through our curated collection of Earthly Posessions. 
-            <br>Each purchase help us complete our first mission.</p>
-            <a class="hero-link" href="articles/OutpostComingSoon.md">Operation: Federation Post 1</a>
+            <h1>Welcome, Citizen.</h1>
+            <p>
+                The Federation databanks are currently indexing newly recovered artifacts. Our initial inventory features a curated selection of reclaimed gear and official Federation merchandise. Every acquisition directly funds our ongoing reclamation directives.
+            </p>
+            <a class="hero-link" href="articles/index.html">READ LATEST TRANSMISSIONS</a>
         </div>
-        <br>
+
+        <!-- Store Controls (Search & Filters) -->
+        <section class="store-controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="SCAN DATABANKS FOR ARTIFACTS..." autocomplete="off">
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="ALL">ALL ARTIFACTS</button>
+                <button class="filter-btn" data-category="APPAREL">APPAREL</button>
+                <button class="filter-btn" data-category="HARDWARE">HARDWARE</button>
+                <button class="filter-btn" data-category="MEDIA">MEDIA</button>
+                <button class="filter-btn" data-category="MISC">MISC</button>
+            </div>
+        </section>
 
         <!-- 2-Column Grid -->
         <div id="product-grid" class="store-grid">
@@ -49,14 +72,18 @@
         </div>
     </div>
 
+    <!-- Public Footer & Portal Links -->
     <footer class="store-footer">
-        <div class="logo">FEDERATION SWIFT THRIFT</div>
-        <div class="footer-links">
-            <a href="articles/OutpostComingSoon.md">OPERATION: FEDERATION POST 1</a>
+        <nav class="footer-links">
             <a href="index.html">HOME</a>
             <a href="contact.html">CONTACT</a>
+            <a href="articles/">ARTICLES</a>
+            <!-- Protected Staff Portal -->
+            <a href="fedengine/index.html">INTRANET</a>
+        </nav>
+        <div class="footer-copy">
+            &copy; 2026 SWIFT THRIFT. ALL RIGHTS RESERVED.
         </div>
-        <p>&copy; 2026 Federation Swift Thrift. All rights reserved.</p>
     </footer>
 
     <script src="store.js" type="module"></script>

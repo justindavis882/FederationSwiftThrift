@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federation Datalogs</title>
+    <link rel="stylesheet" href="../store.css">
+    <style>
+        /* Sci-Fi Timeline Additions */
+        .datalog-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .log-entry {
+            background-color: var(--border-dark);
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+        .log-entry:hover { transform: translateX(5px); }
+        .log-header {
+            background-color: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #333;
+        }
+        .log-title { margin: 0; color: var(--accent-color); font-family: monospace; text-transform: uppercase; font-size: 1.4rem;}
+        .log-date { font-size: 0.8rem; color: #888; font-family: monospace; }
+        .log-body { padding: 20px; line-height: 1.6; font-family: 'Helvetica Neue', sans-serif; white-space: pre-wrap; }
+        .log-image { width: 100%; max-height: 400px; object-fit: cover; border-bottom: 2px solid #333; }
+        .sys-loader { text-align: center; color: var(--accent-color); font-family: monospace; padding: 40px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body>
+    <header class="store-header">
+        <div class="logo">FEDERATION SWIFT THRIFT</div>
+        
+        <nav class="header-links">
+            <a href="../index.html">HOME</a>
+            <a href="index.html">ARTICLES</a>
+            <a href="../contact.html">CONTACT</a>
+        </nav>
+
+        <a href="../index.html" class="cart-btn" style="text-decoration: none;">BACK TO SHOP</a>
+    </header>
+
+    <main class="datalog-container">
+        <h1 style="color: white; font-family: monospace; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">OFFICIAL TRANSMISSIONS</h1>
+        <div id="timeline-feed">
+            <div class="sys-loader">ESTABLISHING UPLINK TO DATABANKS...</div>
+        </div>
+    </main>
+
+    <footer class="store-footer">
+        <nav class="footer-links">
+            <a href="../index.html">HOME</a>
+            <a href="../contact.html">CONTACT</a>
+            <a href="index.html">ARTICLES</a>
+            <a href="../fedengine/index.html">INTRANET</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 SWIFT THRIFT. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+    <script src="../fedengine/script.js" type="module"></script>
+    <script src="articles.js" type="module"></script>
+</body>
+</html>
