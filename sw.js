@@ -2,8 +2,14 @@ const CACHE_NAME = 'fed-engine-v1.2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/00-Main/home.html',   // Updated path
-  '/00-Main/D99.html',    // Updated path
+  '/00-Main/home.html',   
+  '/00-Main/D99.html',    
+  '/03-Dono/dono.html',
+  '/04-BagTag/index.html',
+  '/05-SwiftThrift/index.html',
+  '/06-ShipRec/index.html',
+  '/07-eCom/index.html',
+  '/08-TimePay/index.html',
   '/style.css',
   '/script.js',
   '/auth.js',

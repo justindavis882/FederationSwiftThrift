@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// 1. Add the Storage import
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAP_EiIXJbuotfNQFcjNt7AUCCtZNEQVm4",
@@ -15,7 +17,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+// 2. Initialize Storage
+const storage = getStorage(app); 
 
 console.log("SYS :: Firebase Core Online.");
 
-export { app, auth, db };
+// 3. Export storage so the eCom module can use it
+export { app, auth, db, storage };
