@@ -1,0 +1,86 @@
+/* =========================================
+   03-DONO :: MODULE SPECIFIC STYLES
+   ========================================= */
+
+/* Fix Terminal Header Visibility */
+.terminal-header {
+    color: #00ff00; /* CRT Terminal Green */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.4);
+    font-family: monospace;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Industrial Form Panel */
+.industrial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+    background-color: #2a2a2a; /* Recessed panel background */
+    border: 4px solid #111;
+    border-top-color: #4a4a4a; /* Skeuomorphic lighting */
+    border-left-color: #4a4a4a;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Align labels and inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Hardware Labels */
+.form-group label {
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Recessed Input Screens */
+.form-group input[type="text"],
+.form-group select {
+    padding: 12px;
+    font-family: monospace;
+    font-size: 1.2rem;
+    background-color: #0a0a0a; /* Deep screen black */
+    color: #00ff00; /* Green digital text */
+    border: 3px solid #444;
+    border-top-color: #0a0a0a; /* Inset shadow effect */
+    border-left-color: #0a0a0a;
+    border-bottom-color: #555;
+    border-right-color: #555;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* Active scanning state */
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+    border-color: #00ff00;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* Dimmer green for placeholder text */
+.form-group input::placeholder {
+    color: #005500;
+}
+
+/* Lock dropdown arrow colors if possible (browser dependent) */
+.form-group select option {
+    background-color: #111;
+    color: #00ff00;
+}
+
+/* Force the submit key to span the full width of the panel */
+.industrial-form .macro-key {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3rem;
+}

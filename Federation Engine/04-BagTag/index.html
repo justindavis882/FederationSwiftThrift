@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bag & Tag | FedEngine</title>
+    
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="bagtag.css">
+    <link rel="manifest" href="../manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+    <!-- THIS IS THE DIGITAL INTERFACE -->
+    <div class="terminal-container no-print">
+        <header class="terminal-header">
+            <p>SYS.BAG_TAG :: PROCESSING</p>
+            <p>STATUS: AWAITING BIN ITEM</p>
+        </header>
+
+        <main class="grid-container">
+            <!-- UI Toggle Switch -->
+            <div class="form-row" style="margin-bottom: 20px;">
+                <button type="button" id="btn-mode-fast" class="macro-key active-mode half-width">FAST-TRACK</button>
+                <button type="button" id="btn-mode-queue" class="macro-key half-width">QUEUE PULL</button>
+            </div>
+
+            <form id="tag-form" class="industrial-form">
+                
+                <!-- Only visible in QUEUE PULL mode -->
+                <div class="form-group hidden" id="queue-container">
+                    <label>PENDING INVENTORY QUEUE</label>
+                    <select id="pending-queue">
+                        <option value="" disabled selected>-- LOADING QUEUE... --</option>
+                    </select>
+                </div>
+
+                <!-- Only visible in FAST-TRACK mode -->
+                <div class="form-group" id="category-container">
+                    <label>CATEGORY</label>
+                    <select id="item-category">
+                        <option value="" disabled selected>-- SELECT CLASS --</option>
+                        <option value="apparel">APPAREL</option>
+                        <option value="electronics">ELECTRONICS</option>
+                        <option value="homegoods">HOME GOODS</option>
+                        <option value="media">MEDIA</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>PRODUCT NAME</label>
+                    <input type="text" id="prod-name" required autocomplete="off" placeholder="SCAN, SELECT, OR TYPE">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label>PRICE ($)</label>
+                        <input type="number" id="prod-price" required step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group half-width">
+                        <label>SIZE / DIMS</label>
+                        <input type="text" id="prod-size" placeholder="N/A">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>LABEL FORMAT</label>
+                    <select id="label-type" required>
+                        <option value="" disabled selected>-- SELECT A-LABEL --</option>
+                        <option value="A1">A1 - HARD GOODS (STICKER)</option>
+                        <option value="A2">A2 - APPAREL (TAG)</option>
+                        <option value="A3">A3 - FURNITURE (RIP & PAY)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="macro-key action-key" id="btn-submit">FAST-TRACK & PRINT</button>
+            </form>
+        </main>
+
+        <footer class="action-footer">
+            <button class="aux-key" id="btn-back">RETURN MAIN</button>
+            <button class="aux-key warning-key" id="btn-estop">E-STOP / LOGOUT</button>
+        </footer>
+    </div>
+
+    <!-- THIS IS THE THERMAL PRINTER OUTPUT (HIDDEN ON SCREEN) -->
+    <div id="print-zone" class="print-only">
+        <!-- Injected via JS -->
+    </div>
+
+    <script src="../script.js" type="module"></script>
+    <script src="bagtag.js" type="module"></script>
+</body>
+</html>
