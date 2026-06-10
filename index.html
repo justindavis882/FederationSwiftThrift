@@ -1,58 +1,64 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth Terminal | Federation Swift Thrift</title>
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#1c1e1f">
-    
-    <link rel="manifest" href="manifest.json"> 
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js') // Removed the /
-            .then(reg => console.log('Service Worker Operational:', reg.scope))
-            .catch(err => console.error('Service Worker Fault:', err));
-        });
-    }
-    </script>
+    <title>Federation Swift Thrift | Shop</title>
+    <link rel="stylesheet" href="store.css">
 </head>
 <body>
-    <div class="terminal-chassis login-chassis">
+    <header class="store-header">
+        <div class="logo">FEDERATION SWIFT THRIFT</div>
+        <button id="btn-cart-toggle" class="cart-btn">
+            CART [<span id="cart-count">0</span>]
+        </button>
+    </header>
+
+    <main class="product-container">
         
-        <header class="digital-display">
-            <h1>SYS.AUTH :: IDENTIFY</h1>
-            <div class="status-indicator">AWAITING INPUT</div>
-        </header>
+        <div class="store-hero">
+            <h1>Welcome Traveller!</h1>
+            <p>Please look through our curated collection of Earthly Posessions. 
+            <br>Each purchase help us complete our first mission.</p>
+            <a class="hero-link" href="articles/OutpostComingSoon.md">Operation: Federation Post 1</a>
+        </div>
+        <br>
 
-        <main class="login-interface">
-            <div class="input-housing">
-                <label for="staff-id">SCAN OR ENTER 12-DIGIT STAFF ID</label>
-                <input type="text" id="staff-id" class="lcd-input" maxlength="12" placeholder="08_ _ _ _ _ _ _ _ _ _" autofocus autocomplete="off">
-                <div id="auth-feedback" class="feedback-message"></div>
+        <!-- 2-Column Grid -->
+        <div id="product-grid" class="store-grid">
+            <!-- Product Cards Injected via JS -->
+        </div>
+    </main>
+
+    <!-- Hidden Cart Modal -->
+    <div id="cart-modal" class="cart-overlay hidden">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>SECURE CHECKOUT</h2>
+                <button id="btn-close-cart" class="close-btn">X</button>
             </div>
-
-            <div class="numpad-grid">
-                <button class="num-key" data-val="1">1</button>
-                <button class="num-key" data-val="2">2</button>
-                <button class="num-key" data-val="3">3</button>
-                <button class="num-key" data-val="4">4</button>
-                <button class="num-key" data-val="5">5</button>
-                <button class="num-key" data-val="6">6</button>
-                <button class="num-key" data-val="7">7</button>
-                <button class="num-key" data-val="8">8</button>
-                <button class="num-key" data-val="9">9</button>
-                <button class="num-key action-key" id="btn-clear">CLR</button>
-                <button class="num-key" data-val="0">0</button>
-                <button class="num-key action-key enter-key" id="btn-enter">ENT</button>
+            
+            <div id="cart-items" class="cart-items-list">
+                <!-- Cart Items Injected via JS -->
             </div>
-        </main>
-
+            
+            <div class="cart-footer">
+                <div class="cart-total">TOTAL: $<span id="cart-total-price">0.00</span></div>
+                <button id="btn-checkout" class="macro-key action-key">PROCEED TO STRIPE</button>
+            </div>
+        </div>
     </div>
-    <script src="auth.js" type="module"></script>
+
+    <footer class="store-footer">
+        <div class="logo">FEDERATION SWIFT THRIFT</div>
+        <div class="footer-links">
+            <a href="articles/OutpostComingSoon.md">OPERATION: FEDERATION POST 1</a>
+            <a href="index.html">HOME</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        <p>&copy; 2026 Federation Swift Thrift. All rights reserved.</p>
+    </footer>
+
+    <script src="store.js" type="module"></script>
 </body>
 </html>
